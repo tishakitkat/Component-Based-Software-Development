@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15077225794010" configfile="/HW4/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="178" id="pf15113240958130" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15113240958151 pf15113240958152 pf15113240958153" path="index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="simpleAcknowledgement.xhtml" x="338" y="178" id="pf15113240958154" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf15113240958151 pf15113240958153" path="simpleAcknowledgement.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="winnerAcknowledgement.xhtml" x="338" y="562" id="pf15113240958155" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf15113240958152" path="winnerAcknowledgement.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Search.xhtml" id="pf15113240958156" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf15113240958157 pf151132770908011" path="Search.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="SearchResult.xhtml" id="pf15113240958158" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf15113306044320" inlinks="pf15113240958157" path="SearchResult.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="NoResults.xhtml" id="pf151132770908012" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf151132770908011" path="NoResults.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Deleted.xhtml" id="pf15113306044321" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf15113306044320" path="Deleted.xhtml"/>
+  <links id="pf15113240958151" target="pf15113240958154" source="pf15113240958130" outcome="#{surveyBean.showData()}"/>
+  <links id="pf15113240958152" target="pf15113240958155" source="pf15113240958130" outcome="winner"/>
+  <links id="pf15113240958153" target="pf15113240958154" source="pf15113240958130" outcome="simple"/>
+  <links id="pf15113240958157" target="pf15113240958158" source="pf15113240958156" outcome="SearchResult"/>
+  <links id="pf151132770908011" target="pf151132770908012" source="pf15113240958156" outcome="NoResults"/>
+  <links id="pf15113306044320" target="pf15113306044321" source="pf15113240958158" outcome="deleted"/>
+</pageflow:Pageflow>

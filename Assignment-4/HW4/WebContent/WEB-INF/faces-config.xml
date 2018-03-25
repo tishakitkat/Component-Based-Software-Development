@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+    
+    <navigation-rule>
+    <from-view-id>index.xhtml</from-view-id>
+    <navigation-case>
+   		 <from-outcome>#{surveyBean.showData()}</from-outcome>
+   		 <to-view-id>simpleAcknowledgement.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+   		 <from-outcome>winner</from-outcome>
+   		 <to-view-id>winnerAcknowledgement.xhtml</to-view-id>
+    </navigation-case>
+     <navigation-case>
+       		 <from-outcome>simple</from-outcome>
+   		 <to-view-id>simpleAcknowledgement.xhtml</to-view-id>
+    </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+    <from-view-id>Search.xhtml</from-view-id>
+    <navigation-case>
+       		 <from-outcome>SearchResult</from-outcome>
+   		 <to-view-id>SearchResult.xhtml</to-view-id>
+    </navigation-case>
+     <navigation-case>
+       		 <from-outcome>NoResults</from-outcome>
+   		 <to-view-id>NoResults.xhtml</to-view-id>
+    </navigation-case>
+
+    </navigation-rule>
+    
+    <navigation-rule>
+    	<from-view-id>SearchResult.xhtml</from-view-id>
+   		<navigation-case>
+       		 <from-outcome>deleted</from-outcome>
+   		 	 <to-view-id>Deleted.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+
+   
+
+</faces-config>

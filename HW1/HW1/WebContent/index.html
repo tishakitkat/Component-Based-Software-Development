@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--Student survey form  -->
+<!-- @author : Tisha Kanjilal -->
+<html>
+<head>
+<title>Student Survey Form</title>
+<style>
+*{
+margin:0.5px;
+}
+body{
+background-color:#B5C4C2;
+color:navyblue;
+}
+img{
+float:left;
+height:100px;
+width:400px;
+}
+nav{
+float:right;
+height:100px;
+padding:100px;
+}
+nav a{
+text-decoration:none;
+color:navy;
+}
+nav a:hover{
+color:#9DB404;
+text-decoration:underline;
+}
+#navarea
+{
+	width:450px;
+	height:100px;
+	float:right;
+}
+#navid
+{
+		margin-top:75px;
+		padding:0px;
+		float:left;
+		width:250px;
+		height:40px;
+}
+#header
+{
+	background-color:#ebebeb;
+	height:100px;
+	width:100%;
+}
+#footer
+{
+	background-color:#ebebeb;
+	height:100px;
+}
+#imagecontainer
+{
+	margin-right:25px;
+	margin-top:-15px;
+}
+#outercontainer{
+
+	float:right;
+	height:100px;
+	width:200px;
+}
+#footnote
+{
+	float:left;
+	height:100px;
+}
+table{
+	margin-left:100px;
+}
+
+input{margin-top:12px;}
+
+</style>
+<script src="hw1_script.js"></script>
+
+</head>
+<body>
+<div id="wrapper">
+<!-- Header -->
+<div id="header">
+
+	<h1 align="center" align="center"  >Student Survey Form</h1>
+	<p style="color:#0404B4" align="center"><em>Please take a minute to fill this short survey about your campus experience!</em></p>
+
+</div>
+
+
+
+	<form>
+	<table align="center" border="0px" rules="rows" cellpadding="10px">
+	
+	<!--Name fields  -->
+		<tr>
+			<td width="30%"><b>Your Name (required):</b></td>
+			<td width="35%"><label><input type="text" placeholder="first name" name="name" id="name" size="30" automcomplete = "on" autofocus required /> First Name<label></td>
+			<td width="35%"><label><input type="text" placeholder="last name" name="name" id="name" size="30" automcomplete = "on" required /> Last Name<label></td>
+		</tr>
+	<!--Date of Survey  -->
+		<tr>
+			<td width="30%"><b>Date of Survey (required):</b></td>
+			<td width="35%"><input type="date" name="dob" id="dob"  required/>
+			</td>
+			<td width="35%"></td>
+		</tr>
+	<!--Contact Information includes all required fields - street address,state,city,zipcoe,email,telephone  -->
+		<tr>
+			<td width="30%" ><b>Contact Information (required):</b></td>
+			<td width="35%"><label><input type="text" placeholder="street address" name="address" id="address" size="30" automcomplete = "on" required/> Street Address	</label>
+			<label><input type="text" placeholder="-state-" name="state" id="state" size="30" automcomplete = "on" required/> State</label><br/>
+			<label><input type="text" placeholder="zip code" name="zip" id="zip" size="30" required/> Zip</label><br/>
+			</td>
+			<td width="35%"><label><input type="text" placeholder="-city-" name="city" id="city" size="30" automcomplete = "on" required /> City</label><br/>
+			<label><input type="email" name="email" id="email" size="30" placeholder="name@domain.com" required /> Email</label><br/>
+			<label><input type="tel" name="tel" placeholder="(###) ###-####" pattern="\(\d{3}\)\ +d{3}-\d{4}" id="tel" required/> Telephone</label><br/>
+			</td>
+		</tr>
+		
+	<!--What did you like most about our university -checkbox options  -->
+		<tr>
+			<td width="30%"><b>What did you like most about our university?</b></td>
+			<td width="35%">
+			<label><input type="checkbox" name="Students" value="checkbox" id="Students"/>Students</label><br>
+			<label><input type="checkbox" name="Location" value="checkbox" id="Location"/>Location</label><br>
+			<label><input type="checkbox" name="Campus" value="checkbox" id="Campus"/>Campus</label><br>
+			<label><input type="checkbox" name="Atmosphere" value="checkbox" id="Atmosphere"/>Atmosphere</label><br>
+			<label><input type="checkbox" name="Dorm" value="checkbox" id="Dorm"/>Dorm rooms</label><br>
+			<label><input type="checkbox" name="Sports" value="checkbox" id="Sports"/>Sports</label><br>
+			</td>
+			<td width="35%"></td>
+		</tr>
+		
+	<!--How did you hear about us - radio buttons  -->
+		<tr>
+			<td width="30%"><b>How did you hear about us?</b></td>
+			<td width="35%">
+			<label><input type="radio" name="findUs" id="Friends"/> Friends</label><br>
+			<label><input type="radio" name="findUs" id="Television"/> Television</label><br>
+			<label><input type="radio" name="findUs" id="Internet"/> Internet</label><br>
+			<label><input type="radio" name="findUs" id="Other"/> Other</label><br>
+			<td width="35%"></td>
+		</tr>
+		
+	<!--Would you recommend this university to a friend? - dropdown list  -->
+		<tr>
+			<td width="30%"><b>Would you recommend this university to a friend?</b></td>
+			<td width="35%"><label for="txtlist"><input type="text" id="txtlist" placeholder="Select your rating!" list="rating"/><datalist id="rating">
+			<option value="Very Likely">
+			<option value="Likely">
+			<option value="UnLikely">
+			</datalist>
+			</label>
+			</td>
+			<td width="35%"></td>
+		</tr>
+		
+	<!--Is there anything we can do to improve? -comments  -->
+		<tr>
+			<td width="30%"><b>Is there anything we can do to improve?</b></td>
+			<td width="35%"><textarea type="textbox" rows="5" cols="36" name="comments"/> Please leave us your feedback!</textarea><br></td>
+			<td width="35%"></td>
+		</tr>
+	<!--Raffle - textbox to enter atleast 10 numbers between 1 and 100 to determine winner of movie ticket  -->
+		<tr>
+			<td width="30%"><b>Enter the Raffle to win a free movie ticket:</b></td>
+			<td width="35%"><input type="text" size="35"  name="raffle" id="Data" placeholder="enter atleast 10 comma separated numbers between 1 to 100" onchange="compute()"/><br><div id="errCompute" style="color:red;"></div></td>
+			<td width="35%"></td>
+		</tr>
+
+		<tr>
+			<td colspan="1" align="center"></td>
+			<td colspan="1" align="center"><input type="submit" name="submit" id="submit" value="Submit"/></td>
+			<td colspan="1" align="center"><input type="button" name="cancel" id="cancel" value="Cancel"/></td>
+		</tr>
+
+	</table>
+	</form>
+	<hr>
+	<!-- Footer -->
+	<div id="footer">
+	<div id="footnote">
+	<p>&copy; Copyright 2017 - Kanjilal Tisha</p>
+	</div>
+	</div>
+</div>
+</body>
+
+</html>

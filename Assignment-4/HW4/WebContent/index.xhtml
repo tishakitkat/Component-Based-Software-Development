@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"  xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<h:outputScript library="js" name="hw1_script.js" target="head" /> 
+<h:outputStylesheet library="css" name="table-style.css"  />
+<title>Student Survey</title>
+</h:head>
+<h:body>
+<h1><p:outputLabel value="Student Survey"/></h1>
+<p><p:outputLabel value="Please take a moment to complete the survey"/></p>
+<h:form id="form" prependId="false">
+<fieldset>
+<legend><p:outputLabel value="Student Information"/></legend>
+<p:panelGrid columns="6" style="height:300px;width:500x">
+
+<p:outputLabel for="firstName"  value="First Name:"/>
+<p:inputText id="firstName" value="#{surveyBean.fname}" required="true" requiredMessage="You must enter first name" validatorMessage="first name must contain alphabets only and not exceed 15 characters"><f:validateRegex pattern="^[a-zA-Z]+$" /><f:validateLength maximum="15"/></p:inputText>
+<p:message for="firstName" styleClass="error" />
+
+<p:outputLabel for="lastName"  value="Last name:"/>
+<p:inputText id="lastName"  value="#{surveyBean.lname}" required="true" requiredMessage="You must enter last name" validatorMessage="last name must contain alphabets only and not exceed 15 characters"><f:validateRegex pattern="^[a-zA-Z]+$" /><f:validateLength maximum="15"/></p:inputText>
+<p:message for="lastName" styleClass="error" />
+
+<p:outputLabel for="address"  value="Street Address:"/>
+<p:inputText id="address" value="#{surveyBean.address}"  required="true" requiredMessage="You must enter street address" validatorMessage="Street Address must be alphanumeric and cannot exceed 30 chars"><f:validateRegex pattern="^[a-zA-Z0-9\s]+$" /><f:validateLength maximum="30"/></p:inputText>
+<p:message for="address" styleClass="error" />
+
+
+<p:outputLabel for="city"  value="City:"/>
+<p:inputText id="city"  value="#{surveyBean.city}" required="true" requiredMessage="You must enter City" />
+<p:message for="city" styleClass="error" />
+
+
+<p:outputLabel for="state"  value="State:"/>
+<p:inputText id="state" value="#{surveyBean.state}"  required="true" requiredMessage="You must enter State" />
+<p:message for="state" styleClass="error" />
+
+
+<p:outputLabel for="zip"  value="Zip:"/>
+<p:inputText id="zip" value="#{surveyBean.zip}" required="true" requiredMessage="You must enter Zip" converterMessage="Zip code must be a 5 digit number" validatorMessage="Zipcode must be exactly 5 digits">
+<f:convertNumber pattern="#00000" /><f:validateLength maximum="5" minimum="5"/>
+<f:ajax event="blur" render="city state" listener="#{surveyBean.populateFromZip}" />
+</p:inputText>
+<p:message for="zip" styleClass="error" />
+
+
+<p:outputLabel for="telephone"  value="Telephone:"/>
+<p:inputMask id="telephone" value="#{surveyBean.phone}" mask="(999) 999-9999" required="true" requiredMessage="You must enter Phone number"/>
+<p:message for="telephone" styleClass="error" />
+
+<p:outputLabel for="email"  value="Email:"/>
+<p:inputText id="email" value="#{surveyBean.email}"  required="true" requiredMessage="Please enter email" validatorMessage="Invalid email"><f:validateRegex
+		pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" /></p:inputText>
+<p:message for="email" styleClass="error"  />
+
+<p:outputLabel for="date"  value="Date of Survey:"/>
+<p:calendar id="date" value="#{surveyBean.date}" required="true" requiredMessage="You must enter Date of Survey"/>
+<p:message for="date" styleClass="error" />
+
+<p:outputLabel for="startdate"  value="Possible Start Date:"/>
+<p:calendar id="startdate" value="#{surveyBean.startdate}" required="true" requiredMessage="You must enter start date"/>
+<p:message for="startdate" styleClass="error" />
+
+</p:panelGrid>
+</fieldset>
+<br/>
+<fieldset>
+<legend><p:outputLabel value="Questionaire"/></legend>
+
+<p:outputLabel for="check"  value="What did you like most about the campus?:"/>
+<p:selectManyCheckbox id="check" value = "#{surveyBean.check}"> 
+   <f:selectItem itemValue = "students" itemLabel = "students" /> 
+   <f:selectItem itemValue = "location" itemLabel = "location" /> 
+   <f:selectItem itemValue = "campus" itemLabel = "campus" /> 
+   <f:selectItem itemValue = "atmosphere" itemLabel = "atmosphere" /> 
+   <f:selectItem itemValue = "dorm rooms" itemLabel = "dorm rooms" /> 
+   <f:selectItem itemValue = "sports" itemLabel = "sports" /> 
+</p:selectManyCheckbox>
+<br/>
+
+<p:outputLabel for="radio"  value="How did you get interested in the university?:"/>
+<p:selectOneRadio id="radio" value = "#{surveyBean.radio}"> 
+   <f:selectItem itemValue = "friends" itemLabel = "friends" /> 
+   <f:selectItem itemValue = "television" itemLabel = "television" />
+   <f:selectItem itemValue = "internet" itemLabel = "internet" /> 
+   <f:selectItem itemValue = "other" itemLabel = "other" />
+</p:selectOneRadio> 
+<br/>
+
+<p:outputLabel for="menu"  value="Will you recommend this university to other students?:"/>
+<p:autoComplete id="menu" value="#{surveyBean.menu}" completeMethod="#{surveyBean.menuList}" minQueryLength="1" /> 
+<br/><br/>
+
+<p:outputLabel for="raffle"  value="Enter atleast ten numbers between 1 to 100 to win a free movie ticket:"/>
+<p:inputText id="raffle" required="true" value="#{surveyBean.raffle}" requiredMessage="Please enter the raffle numbers 1 to 100" ></p:inputText>
+<p:message for="raffle" styleClass="error"/>
+<br/><br/>
+
+<p:outputLabel for="comment"  value="Additional Comments:"/>
+<br/>
+<p:inputTextarea row = "3" col = "20" id="comment" value="#{surveyBean.comment}"/>
+</fieldset>
+<p:commandButton value="Submit" update="form" action="#{surveyBean.showData()}"/>
+<p:commandButton value="Cancel" type="reset" />
+</h:form>
+</h:body>
+</html>
